@@ -1,5 +1,5 @@
-
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { navigationBarLinks } from "../../routes/consts";
 
 const Navbar = () => {
   return (
@@ -8,9 +8,9 @@ const Navbar = () => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           My App
         </Typography>
-        <Button color="inherit">Home</Button>
-        <Button color="inherit">About</Button>
-        <Button color="inherit">Contact</Button>
+        {navigationBarLinks.map((link, index) => (
+          <Button key={index} color="inherit">{link.text}</Button>
+        ))}
       </Toolbar>
     </AppBar>
   );
