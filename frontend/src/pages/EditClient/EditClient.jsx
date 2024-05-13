@@ -57,7 +57,7 @@ const EditClient = () => {
           fullWidth
           value={client.name}
           onChange={handleChange}
-          style={{ marginBottom: '15px' }} // pridėti tarpą po įvesties lauko
+          style={{ marginBottom: '15px' }} 
         />
         <TextField
           name="lastName"
@@ -66,7 +66,7 @@ const EditClient = () => {
           fullWidth
           value={client.lastName}
           onChange={handleChange}
-          style={{ marginBottom: '15px' }} // pridėti tarpą po įvesties lauko
+          style={{ marginBottom: '15px' }} 
         />
         <TextField
           name="email"
@@ -75,7 +75,7 @@ const EditClient = () => {
           fullWidth
           value={client.email}
           onChange={handleChange}
-          style={{ marginBottom: '15px' }} // pridėti tarpą po įvesties lauko
+          style={{ marginBottom: '15px' }} 
         />
         <TextField
           name="age"
@@ -85,7 +85,7 @@ const EditClient = () => {
           type="number"
           value={client.age}
           onChange={handleChange}
-          style={{ marginBottom: '15px' }} // pridėti tarpą po įvesties lauko
+          style={{ marginBottom: '15px' }} 
         />
         <TextField
           name="event"
@@ -94,7 +94,7 @@ const EditClient = () => {
           fullWidth
           value={client.event}
           onChange={handleChange}
-          style={{ marginBottom: '15px' }} // pridėti tarpą po įvesties lauko
+          style={{ marginBottom: '15px' }} 
         />
         <Button type="submit" variant="contained" color="primary">
           Atnaujinti

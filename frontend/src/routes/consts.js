@@ -9,7 +9,7 @@ export const ROUTES = {
   MAIN: "/",
   CLIENTS: "/clients",
   NEW_CLIENT: "/clients/add",
-  EDIT_CLIENT: "clients/edit/:id" // Pakeičiame kelią
+  EDIT_CLIENT: "clients/edit/:id"
 };
 
 export const routes = [

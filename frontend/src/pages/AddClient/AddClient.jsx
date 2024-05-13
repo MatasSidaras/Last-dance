@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Typography, Button, TextField, Container } from "@mui/material";
 import { createClient } from "../../api/clients";
-import { useNavigate } from "react-router-dom"; // Importuojame useNavigate iš React Router
+import { useNavigate } from "react-router-dom";
 
 const NewClient = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +12,7 @@ const NewClient = () => {
     event: ""
   });
 
-  const navigate = useNavigate(); // Sukuriamas navigate kintamasis naudojant useNavigate()
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -24,9 +24,9 @@ const NewClient = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Data to be sent to the server:", formData); // Čia pridedame console.log
+      console.log("Data to be sent to the server:", formData); 
       await createClient(formData);
-      navigate("/clients"); // Nukreipimas po kliento pridėjimo
+      navigate("/clients");
       alert("Client added successfully!");
     } catch (error) {
       console.error("Error adding client:", error);

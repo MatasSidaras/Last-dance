@@ -1,8 +1,8 @@
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { Link as RouterLink } from 'react-router-dom'; // Pridėjau Link importą iš react-router-dom
+import { Link as RouterLink } from 'react-router-dom';
 import { navigationBarLinks } from "../../routes/consts";
 import logo from "../../assets/eventpro-logo.png"
-import styles from "./Navbar.module.scss"; // Pakeičiau kelio pabaigą iš "../NavBar/Navbar.module.scss" į "./Navbar.module.scss"
+import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   return (
