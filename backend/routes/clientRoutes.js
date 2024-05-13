@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
     const data = await client
       .db("myDB")
       .collection("clients")
-      .findOne({ _id: ObjectId(id) });
+      .findOne({ _id: new ObjectId(id) });
     if (!data) {
       return res.status(404).send({ message: "Client not found" });
     }
@@ -40,19 +40,31 @@ router.get("/:id", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-  try {
-    const { name, lastName, email, age, event } = req.body;
-    const result = await client
-      .db("myDB")
-      .collection("clients")
-      .insertOne({ name, lastName, email, age, event });
-    res.send(result.ops[0]);
-  } catch (error) {
-    console.error("Error creating client:", error);
-    return res.status(500).send({ error });
-  }
-});
-
+    try {
+      const {
+        name,
+        lastName,
+        email,
+        age,
+        event
+      } = req.body;
+  
+      const result = await client.db("myDB").collection("clients").insertOne({
+        name,
+        lastName,
+        email,
+        age,
+        event
+      });
+  
+      res
+        .status(201)
+        .send({ message: "Client added successfully", clientId: result.insertedId });
+    } catch (error) {
+      console.error("Error adding clients:", error);
+      return res.status(500).send({ error });
+    }
+  });
 
 router.put("/:id", async (req, res) => {
     try {
@@ -62,7 +74,7 @@ router.put("/:id", async (req, res) => {
         .db("myDB")
         .collection("clients")
         .updateOne(
-          { _id: ObjectId(id) },
+          { _id: new ObjectId(id) },
           { $set: { name, lastName, email, age, event } } 
         );
     if (result.modifiedCount === 0) {
@@ -75,14 +87,13 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Delete a client by ID
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const result = await client
       .db("myDB")
       .collection("clients")
-      .deleteOne({ _id: ObjectId(id) });
+      .deleteOne({ _id: new ObjectId(id) });
     if (result.deletedCount === 0) {
       return res.status(404).send({ message: "Client not found" });
     }
